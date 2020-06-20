@@ -27,6 +27,16 @@ namespace Monopoly_en_consola
             piezas[0, 0] = new Suelo(); piezas[0, 1] = new Suelo();
             piezas[1, 0] = new Suelo(); piezas[1, 1] = new Suelo();
         }
+        private void CargarPosicion()
+        {
+            for (sbyte fila = 0; fila < this.fila; fila++)
+            {
+                for (sbyte columna = 0; columna < this.columna; columna++)
+                {
+                    piezas[fila, columna].miPosicion = new Posicion();
+                }
+            }
+        }
         private void MostrarTablero()
         {
             for (sbyte fila = 0; fila < this.fila; fila++)
