@@ -13,19 +13,18 @@ namespace Monopoly_en_consola
         readonly sbyte columna = 2;
 
         Pieza[,] piezas;
-
         public void Comenzar()
         {
             ArmarTablero();
+            CargarPosicion();
             MostrarTablero();
         }
-
         private void ArmarTablero()
         {
             piezas = new Pieza[fila, columna];
 
             piezas[0, 0] = new Suelo(); piezas[0, 1] = new Suelo();
-            piezas[1, 0] = new Suelo(); piezas[1, 1] = new Suelo();
+            piezas[1, 0] = new Suelo(); piezas[1, 1] = new Jugador();
         }
         private void CargarPosicion()
         {
