@@ -6,46 +6,47 @@ using System.Threading.Tasks;
 
 namespace Monopoly_en_consola
 {
-    //El Tablero se va a encargar de contener todo.
     public class Tablero
     {
-        readonly sbyte fila = 2;
-        readonly sbyte columna = 2;
-
-        Pieza[,] piezas;
-        public void Comenzar()
+        private sbyte tamañoTablero = 10;
+        Pieza[] casillero;
+        Jugador jugador1 = new Jugador();
+        public void Inicio()
         {
-            ArmarTablero();
+            casillero = new Pieza[tamañoTablero];
+            ArmarTableroBase();
+            CargarPiezasAlCasillero();
             CargarPosicion();
+            CambiarPosicion();
             MostrarTablero();
         }
-        private void ArmarTablero()
+        private void ArmarTableroBase()
         {
-            piezas = new Pieza[fila, columna];
-
-            piezas[0, 0] = new Suelo(); piezas[0, 1] = new Suelo();
-            piezas[1, 0] = new Suelo(); piezas[1, 1] = new Jugador();
+            for (sbyte posicion = 0; posicion < tamañoTablero; posicion++)
+            {
+                casillero[posicion] = new Suelo();
+            }
+        }
+        private void CargarPiezasAlCasillero()
+        {
+            casillero[0] = jugador1;
         }
         private void CargarPosicion()
         {
-            for (sbyte fila = 0; fila < this.fila; fila++)
-            {
-                for (sbyte columna = 0; columna < this.columna; columna++)
-                {
-                    piezas[fila, columna].miPosicion = new Posicion();
-                }
-            }
+            jugador1.MiPosicion = new Posicion(0); 
         }
-        private void MostrarTablero()
+        private void CambiarPosicion()
         {
-            for (sbyte fila = 0; fila < this.fila; fila++)
-            {   
-                for (sbyte columna = 0; columna < this.columna; columna++)
-                {
-                    Console.Write(piezas[fila,columna].DibujarElemento());
-                }
-                Console.WriteLine();
-            }
+            jugador1.MiPosicion.NuevaPosicion = jugador1.MiPosicion.CargarNuevaPosicion(jugador1.MiPosicion, 12, tamañoTablero);
+            ArmarTableroBase();
+            casillero[jugador1.MiPosicion.NuevaPosicion] = jugador1;
+        }
+        public void MostrarTablero()
+        {
+            for (sbyte posicion = 0; posicion < tamañoTablero; posicion++)
+            {
+                Console.Write(casillero[posicion].DibujarElemento());
+            }     
         }
     }
 }

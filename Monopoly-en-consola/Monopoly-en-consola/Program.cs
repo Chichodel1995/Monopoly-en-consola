@@ -10,9 +10,8 @@ namespace Monopoly_en_consola
     {
         static void Main(string[] args)
         {
-            Jugar juego = new Jugar();
-            juego.Comenzar();
-
+            Juego juego = new Juego();
+            juego.Inicio();
             Console.ReadKey();
         }
     }

@@ -6,12 +6,11 @@ using System.Threading.Tasks;
 
 namespace Monopoly_en_consola
 {
-    // Suelo va a tener los comportamientos de Pieza.
-    class Suelo : Pieza
+    public class Suelo : Pieza
     {
         public override char DibujarElemento()
         {
-            return 'º';
+            return '*';
         }
     }
 }

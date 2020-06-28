@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Monopoly_en_consola
 {
-    public class Jugar : Tablero
+    public class Juego : Tablero
     {
         //No requiere código.
     }
