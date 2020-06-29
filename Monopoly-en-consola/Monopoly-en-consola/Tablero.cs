@@ -11,13 +11,14 @@ namespace Monopoly_en_consola
         private sbyte tamañoTablero = 10;
         Pieza[] casillero;
         Jugador jugador1 = new Jugador();
+        Dado dado = new Dado();
         public void Inicio()
         {
             casillero = new Pieza[tamañoTablero];
             ArmarTableroBase();
             CargarPiezasAlCasillero();
             CargarPosicion();
-            CambiarPosicion();
+            CambiarPosicion(dado.TirarDosDados());
             MostrarTablero();
         }
         private void ArmarTableroBase()
@@ -35,9 +36,9 @@ namespace Monopoly_en_consola
         {
             jugador1.MiPosicion = new Posicion(0); 
         }
-        private void CambiarPosicion()
+        private void CambiarPosicion(sbyte pCantidadMovimiento)
         {
-            jugador1.MiPosicion.NuevaPosicion = jugador1.MiPosicion.CargarNuevaPosicion(jugador1.MiPosicion, 12, tamañoTablero);
+            jugador1.MiPosicion.NuevaPosicion = jugador1.MiPosicion.CargarNuevaPosicion(jugador1.MiPosicion, pCantidadMovimiento, tamañoTablero);
             ArmarTableroBase();
             casillero[jugador1.MiPosicion.NuevaPosicion] = jugador1;
         }
