@@ -13,7 +13,8 @@ namespace Monopoly_en_consola
         private sbyte miPosicion = 0;
         public Posicion(){}
         public Posicion(sbyte pMiPosicion) { miPosicion = pMiPosicion; }
-        public sbyte NuevaPosicion { get => miPosicion; set => miPosicion = value; }
+        public sbyte NuevaPosicion { set => miPosicion = value; }
+        public sbyte PosicionActual { get => miPosicion; }
         public sbyte CargarNuevaPosicion(Posicion pPosicion, sbyte pCantidadMovimiento, sbyte pTamañoTablero)
         {
             for (sbyte contador = 0; contador < pCantidadMovimiento; contador++)

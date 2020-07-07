@@ -11,7 +11,7 @@ namespace Monopoly_en_consola
         static void Main(string[] args)
         {
             Juego juego = new Juego();
-            juego.Inicio();
+            juego.ComenzarPartida();
             Console.ReadKey();
         }
     }
